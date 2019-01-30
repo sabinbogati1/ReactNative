@@ -5,7 +5,7 @@ const initialState = {
     selectedPlace: null
 }
 
-const reducer = (state= initial State, action) => {
+const reducer = (state= initialState, action) => {
     switch (action.type) {
         case ADD_PLACE:
             return {
@@ -31,6 +31,7 @@ const reducer = (state= initial State, action) => {
 
         case SELECT_PLACE:
             return {
+                ...state,
                 selectedPlace: state.places.find(place => {
                     return place.key === action.placeKey;
                   })
@@ -47,3 +48,6 @@ const reducer = (state= initial State, action) => {
             return state;
     }
 }
+
+
+export default reducer;
